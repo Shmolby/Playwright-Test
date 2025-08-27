@@ -14,8 +14,7 @@ class CheckoutStepTwo:
         self.page.goto(self.url)
 
     def product_in_cart(self, product):
-        item_names = [item.text_content() for item in self.cart_item_name.all()]
-        return product in item_names
+        return self.page.locator(f"xpath=//div[@data-test='inventory-item-name' and text() = '{product}']")
 
     def finish_checkout(self):
         self.finish_button.click()

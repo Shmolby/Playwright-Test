@@ -26,7 +26,7 @@ def test_checkout_flow(login_page: LoginPage,
 
     # Go to the cart and check whether the product is in the cart
     products_page.go_to_cart()
-    assert cart_page.product_in_cart("Sauce Labs Onesie")
+    expect(cart_page.product_in_cart("Sauce Labs Onesie")).to_be_visible()
 
     # proceed to the checkout
     cart_page.proceed_to_checkout()
@@ -37,7 +37,7 @@ def test_checkout_flow(login_page: LoginPage,
     expect(checkout_step_two.summary_info).to_be_visible()
 
     # verify the item being purchased
-    assert checkout_step_two.product_in_cart("Sauce Labs Onesie")
+    expect(checkout_step_two.product_in_cart("Sauce Labs Onesie")).to_be_visible()
 
     # complete the purchase
     checkout_step_two.finish_checkout()
