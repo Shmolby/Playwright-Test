@@ -103,7 +103,7 @@ However, playwright still needs to install the browsers it uses through the foll
 playwright install
 ```
 
-After the installation is done, tests can be run through the IDE itself, or through the command line with the following command:
+After the installation is done, tests can be run through the command line with the following command:
 ```
 pytest
 ```
