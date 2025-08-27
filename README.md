@@ -37,13 +37,13 @@ After the installation is done, tests can be run through the IDE itself, or thro
 pytest
 ```
 Running a command with only Pytest will not show what's happening, in order to see that the following two arguments can be added:
-
+```
 --headed
-
+```
   shows the browser as it's running
-  
+```
 --slowmo
-
+```
   Slows down the actions by milliseconds equal to the given number. For example, "--slowmo 500" slows down every action by 500ms/0.5s
   
 For example:
