@@ -12,16 +12,9 @@ class ProductsPage:
     def load(self):
         self.page.goto(self.url)
 
-    def products(self) -> list[str]:
-        product_list = self.inventory_item.all()
-        product_names = []
-        for item in product_list:
-            product_names.append(item.text_content())
-        return product_names
-
     def add_product_to_cart(self, product: str):
         self.page.locator(f"xpath=//div[@data-test='inventory-item-name' and text() = '{product}']//ancestor::div[@class = 'inventory_item_description']//button[text() = 'Add to cart']").click()
 
-    def go_to_checkout(self):
-        self.page.locator("xpath=//a[@data-test='shopping-cart-link']").click()
+    def go_to_cart(self):
+        self.shopping_cart.click()
 
