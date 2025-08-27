@@ -20,9 +20,13 @@ def test_checkout_flow(page: Page):
     products_page.add_product_to_cart("Sauce Labs Onesie")
 
     # Proceed to checkout
-    products_page.go_to_checkout()
-    expect()
+    products_page.go_to_cart()
+    assert cart_page.product_in_cart("Sauce Labs Onesie")
+
+    cart_page.proceed_to_checkout()
 
     # fill in first name, last name and postal code (can use dummy values)
+
+
     # complete the purchase
     # verify that the order has been successfully placed (check confirmation message (expect))
