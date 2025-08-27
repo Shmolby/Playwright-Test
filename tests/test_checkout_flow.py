@@ -7,13 +7,12 @@ from pages.checkout_step_two import CheckoutStepTwo
 from pages.checkout_complete import CheckoutComplete
 
 
-def test_checkout_flow(page: Page):
-    login_page = LoginPage(page)
-    products_page = ProductsPage(page)
-    cart_page = CartPage(page)
-    checkout_step_one = CheckoutStepOne(page)
-    checkout_step_two = CheckoutStepTwo(page)
-    checkout_complete = CheckoutComplete(page)
+def test_checkout_flow(login_page: LoginPage,
+                       products_page: ProductsPage,
+                       cart_page: CartPage,
+                       checkout_step_one: CheckoutStepOne,
+                       checkout_step_two: CheckoutStepTwo,
+                       checkout_complete: CheckoutComplete):
 
     # go to SauceDemo
     login_page.load()
