@@ -3,9 +3,11 @@ Make sure that the IDE has python installed.
 If you're using an IDE, you can use "Get from VCS" to clone the repository
 
 Go to the green "<> Code" button on the middle top right of the "<> code" tab on github and click it
+
 Copy the HTTPS code into the URL bar of your IDE and choose a directory for the project
 
 An IDE can automatically start creating a Virtual Environment for you
+
 If it doesn't, run the following code in the IDE terminal:
 
 ```
@@ -24,6 +26,7 @@ pip install -r requirements.txt
 ```
 
 After running this, playwright will be installed.
+
 However, playwright still needs to install the browsers it uses through the following command:
 ```
 playwright install
@@ -34,10 +37,15 @@ After the installation is done, tests can be run through the IDE itself, or thro
 pytest
 ```
 Running a command with only Pytest will not show what's happening, in order to see that the following two arguments can be added:
+
 --headed
+
   shows the browser as it's running
+  
 --slowmo
+
   Slows down the actions by milliseconds equal to the given number. For example, "--slowmo 500" slows down every action by 500ms/0.5s
+  
 For example:
 ```
 pytest --headed --slowmo 500
@@ -48,6 +56,7 @@ pytest --headed --slowmo 500
 Make sure the computer has python installed
 
 Open up PowerShell
+
 Go to a directory where you want the project to be, for example:
 ```
 cd C:\Users\<username>\Pythonprojects
@@ -60,6 +69,7 @@ mkdir Playwright-test
 ```
 
 Go to the green "<> Code" button on the middle top right of the "<> code" tab on github and click it
+
 If you have git you can copy the web URL under HTTPS and run:
 ```
 git clone https://github.com/Shmolby/Playwright-Test.git
@@ -87,6 +97,7 @@ pip install -r requirements.txt
 ```
 
 After running this, playwright will be installed.
+
 However, playwright still needs to install the browsers it uses through the following command:
 ```
 playwright install
@@ -97,10 +108,15 @@ After the installation is done, tests can be run through the IDE itself, or thro
 pytest
 ```
 Running a command with only Pytest will not show what's happening, in order to see that the following two arguments can be added:
+
 --headed
+
   shows the browser as it's running
+  
 --slowmo
+
   Slows down the actions by milliseconds equal to the given number. For example, "--slowmo 500" slows down every action by 500ms/0.5s
+  
 For example:
 ```
 pytest --headed --slowmo 500
