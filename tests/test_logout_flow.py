@@ -1,12 +1,9 @@
 from playwright.sync_api import expect
-from pages.login import LoginPage
-from pages.side_menu import SideMenu
-from pages.products import ProductsPage
 
 
-def test_logout_flow(login_page: LoginPage,
-                     products_page: ProductsPage,
-                     side_menu: SideMenu):
+def test_logout_flow(login_page,
+                     products_page,
+                     side_menu):
 
     # go to SauceDemo
     login_page.load()

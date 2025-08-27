@@ -1,18 +1,12 @@
 from playwright.sync_api import expect
-from pages.login import LoginPage
-from pages.products import ProductsPage
-from pages.cart import CartPage
-from pages.checkout_step_one import CheckoutStepOne
-from pages.checkout_step_two import CheckoutStepTwo
-from pages.checkout_complete import CheckoutComplete
 
 
-def test_checkout_flow(login_page: LoginPage,
-                       products_page: ProductsPage,
-                       cart_page: CartPage,
-                       checkout_step_one: CheckoutStepOne,
-                       checkout_step_two: CheckoutStepTwo,
-                       checkout_complete: CheckoutComplete):
+def test_checkout_flow(login_page,
+                       products_page,
+                       cart_page,
+                       checkout_step_one,
+                       checkout_step_two,
+                       checkout_complete):
 
     # go to SauceDemo
     login_page.load()
