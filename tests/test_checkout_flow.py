@@ -6,14 +6,15 @@ def test_checkout_flow(login_page,
                        cart_page,
                        checkout_step_one,
                        checkout_step_two,
-                       checkout_complete):
+                       checkout_complete,
+                       side_menu):
 
     # go to SauceDemo
     login_page.load()
 
     # log into the website
     login_page.login("standard_user", "secret_sauce")
-    expect(products_page.shopping_cart).to_be_visible()
+    expect(side_menu.open_menu_button).to_be_visible()
 
     # Add any product to the cart
     products_page.add_product_to_cart("Sauce Labs Onesie")
@@ -28,7 +29,6 @@ def test_checkout_flow(login_page,
     # fill in first name, last name and postal code (can use dummy values)
     checkout_step_one.enter_information("Test", "Person", "1000AA")
     checkout_step_one.proceed_to_purchase_overview()
-    expect(checkout_step_two.summary_info).to_be_visible()
 
     # verify the item being purchased
     expect(checkout_step_two.product_in_cart("Sauce Labs Onesie")).to_be_visible()
@@ -38,3 +38,4 @@ def test_checkout_flow(login_page,
 
     # verify that the order has been successfully placed (check confirmation message (expect))
     expect(checkout_complete.title_header).to_have_text("Checkout: Complete!")
+    expect(checkout_complete.complete_text).to_have_text("Your order has been dispatched, and will arrive just as fast as the pony can get there!")

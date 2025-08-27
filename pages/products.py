@@ -13,6 +13,11 @@ class ProductsPage:
         self.page.goto(self.url)
 
     def add_product_to_cart(self, product: str):
+        """
+        looks for the element with the product name in the text,
+        goes up to the description of the item and back down to the add to cart button.
+        This makes sure that the add to cart button clicked is the correct items button
+        """
         self.page.locator(f"xpath=//div[@data-test='inventory-item-name' and text() = '{product}']//ancestor::div[@class = 'inventory_item_description']//button[text() = 'Add to cart']").click()
 
     def go_to_cart(self):

@@ -7,8 +7,6 @@ class CheckoutStepTwo:
         self.page = page
         self.url = "https://www.saucedemo.com/checkout-step-two.html"
         self.finish_button = page.locator("xpath=//button[@data-test='finish']")
-        self.cart_item_name = page.locator("xpath=//div[@data-test='inventory-item-name']")
-        self.summary_info = page.locator("xpath=//div[@class='summary_info']")
 
     def load(self):
         self.page.goto(self.url)

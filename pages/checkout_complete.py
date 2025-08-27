@@ -8,6 +8,7 @@ class CheckoutComplete:
         self.url = "https://www.saucedemo.com/checkout-complete.html"
         self.home_button = page.locator("xpath=//button[@data-test='back-to-products']")
         self.title_header = page.locator("xpath=//div[@data-test='secondary-header']/span[@data-test='title']")
+        self.complete_text = page.locator("xpath=//div[@data-test='complete-text']")
 
     def load(self):
         self.page.goto(self.url)

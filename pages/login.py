@@ -13,7 +13,16 @@ class LoginPage:
     def load(self):
         self.page.goto(self.url)
 
-    def login(self, username: str, password: str):
+    def username_fill(self, username: str):
         self.username_field.fill(username)
+
+    def password_fill(self, password: str):
         self.password_field.fill(password)
+
+    def click_login_button(self):
         self.login_button.click()
+
+    def login(self, username: str, password: str):
+        self.username_fill(username)
+        self.password_fill(password)
+        self.click_login_button()

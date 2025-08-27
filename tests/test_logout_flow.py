@@ -10,7 +10,7 @@ def test_logout_flow(login_page,
 
     # log into the website
     login_page.login("standard_user", "secret_sauce")
-    expect(products_page.shopping_cart).to_be_visible()
+    expect(side_menu.open_menu_button).to_be_visible()
 
     # open the menu and log out
     side_menu.open_menu()
