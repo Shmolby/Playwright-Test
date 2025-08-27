@@ -13,8 +13,7 @@ class CartPage:
         self.page.goto(self.url)
 
     def product_in_cart(self, product: str):
-        cart_products = [item.text_content() for item in self.cart_item_name.all()]
-        return product in cart_products
+        return self.page.locator(f"xpath=//div[@data-test='inventory-item-name' and text() = '{product}']")
 
     def proceed_to_checkout(self):
         self.checkout_button.click()

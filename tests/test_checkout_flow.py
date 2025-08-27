@@ -1,18 +1,12 @@
-from playwright.sync_api import expect, Page
-from pages.login import LoginPage
-from pages.products import ProductsPage
-from pages.cart import CartPage
-from pages.checkout_step_one import CheckoutStepOne
-from pages.checkout_step_two import CheckoutStepTwo
-from pages.checkout_complete import CheckoutComplete
+from playwright.sync_api import expect
 
 
-def test_checkout_flow(login_page: LoginPage,
-                       products_page: ProductsPage,
-                       cart_page: CartPage,
-                       checkout_step_one: CheckoutStepOne,
-                       checkout_step_two: CheckoutStepTwo,
-                       checkout_complete: CheckoutComplete):
+def test_checkout_flow(login_page,
+                       products_page,
+                       cart_page,
+                       checkout_step_one,
+                       checkout_step_two,
+                       checkout_complete):
 
     # go to SauceDemo
     login_page.load()
@@ -26,7 +20,7 @@ def test_checkout_flow(login_page: LoginPage,
 
     # Go to the cart and check whether the product is in the cart
     products_page.go_to_cart()
-    assert cart_page.product_in_cart("Sauce Labs Onesie")
+    expect(cart_page.product_in_cart("Sauce Labs Onesie")).to_be_visible()
 
     # proceed to the checkout
     cart_page.proceed_to_checkout()
@@ -37,7 +31,7 @@ def test_checkout_flow(login_page: LoginPage,
     expect(checkout_step_two.summary_info).to_be_visible()
 
     # verify the item being purchased
-    assert checkout_step_two.product_in_cart("Sauce Labs Onesie")
+    expect(checkout_step_two.product_in_cart("Sauce Labs Onesie")).to_be_visible()
 
     # complete the purchase
     checkout_step_two.finish_checkout()
