@@ -6,7 +6,6 @@ class CartPage:
     def __init__(self, page: Page):
         self.page = page
         self.url = "https://www.saucedemo.com/cart.html"
-        self.cart_item_name = page.locator("xpath=//div[@data-test='inventory-item-name']")
         self.checkout_button = page.locator("xpath=//button[@data-test='checkout']")
 
     def load(self):
