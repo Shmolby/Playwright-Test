@@ -26,7 +26,7 @@ def test_checkout_flow(login_page,
     # proceed to the checkout
     cart_page.proceed_to_checkout()
 
-    # fill in first name, last name and postal code (can use dummy values)
+    # fill in first name, last name and postal code
     checkout_step_one.enter_information("Test", "Person", "1000AA")
     checkout_step_one.proceed_to_purchase_overview()
 
@@ -36,6 +36,6 @@ def test_checkout_flow(login_page,
     # complete the purchase
     checkout_step_two.finish_checkout()
 
-    # verify that the order has been successfully placed (check confirmation message (expect))
+    # verify that the order has been successfully placed
     expect(checkout_complete.title_header).to_have_text("Checkout: Complete!")
     expect(checkout_complete.complete_text).to_have_text("Your order has been dispatched, and will arrive just as fast as the pony can get there!")
